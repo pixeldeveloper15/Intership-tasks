@@ -66,3 +66,14 @@ footer {
 .plan:hover {
     background-color: #f0f0f0;
 }
+
+.customization {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Add a bit of styling for the currency dropdown */
+#currency {
+    padding: 5px;
+    font-size: 16px;
+}
