@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <title>Welcome to the Registration Page!!!</title>
+
+    <style>
+        /* Reset some default styles */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Leage Spartan', sans-serif;
+            background: url('./sign-in-box@3x.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Styling for the login form container */
+        .sign_up_page {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100vh;
+            padding-right: 20px; /* Adjust this value for proper alignment */
+        }
+
+        .bg-img {
+            margin-left: 300px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .signup-form {
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            padding: 40px;
+            margin-top: 100px;
+            margin-right: 100px;
+            border-radius: 5px;
+            background: #fff;
+        }
+
+        .signup-form h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .signup-form p.hint-text {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #999;
+        }
+
+        /* Styling for form fields */
+        .form-group {
+            margin-bottom: 20px;
+            padding-right: 10px;
+            border-style: none;
+        }
+
+        .form-group .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            outline: none;
+            transition: all 0.1s ease;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Styling for buttons */
+        .btn-success {
+            background-color: #0FA958;
+            border: none;
+            border-radius: 5px;
+            align-items: center;
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 10px 30px;
+            text-align: center;
+            font-weight: 600;
+            color: #333;
+            font-size: 15px;
+            width: 400px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* Styling for links */
+        .text-center a {
+            color: #333;
+            text-decoration: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .or-container {
+            align-items: center;
+            color: #ccc;
+            display: flex;
+            margin: 10px 0;
+        }
+
+        .line-separator {
+            background-color: #ccc;
+            flex-grow: 5;
+            height: 1px;
+        }
+
+        .text-center a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-google {
+            color: #545454;
+            background-color: #ffffff;
+            box-shadow: 0 1px 2px 1px #d9d9dd;
+            width: 350px;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive styling for small screens */
+        @media (max-width: 767px) {
+            .sign_up_page {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .bg-img {
+                margin-left: 0;
+            }
+
+            .signup-form {
+                margin: 20px;
+            }
+        }
+
+        /* Styles for the success modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 5px;
+            width: 70%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            top: 20%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="sign_up_page">
+        <!-- Sign up form -->
+        <div class="bg-img">
+            <!-- <img src="./logo.png" alt="DQ" width="300" height="130"> -->
+            <h2 style="color:white;padding:20px;font-size:45px">MotionCut</h2>
+        </div>
+        <div class="modal" id="successModal">
+            <div class="modal-content">
+                <span class="close" onclick="closeSuccessModal()">&times;</span>
+                <p>You have successfully registered to SafePay!</p>
+            </div>
+        </div>
+
+        <div class="signup-form">
+            <form action="index.php" method="post">
+                <h2>Register</h2>
+                <p class="hint-text">Create your account</p>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                        required="required">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                        required="required">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                        required="required">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a
+                            href="#">Terms
+                            of Use</a> & <a href="#">Privacy Policy</a></label>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" name="save" class="btn btn-success btn-lg btn-block">Register Now</button>
+                </div>
+
+                <div class="or-container">
+                    <div class="line-separator"></div>
+                    <div class="or-label">or</div>
+                    <div class="line-separator"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="btn btn-lg btn-google btn-block text-uppercase btn-outline"
+                            href="../services/login_with_google.php"><img
+                                src="https://img.icons8.com/color/16/000000/google-logo.png"> Signup Using
+                            Google</a>
+                    </div>
+                </div>
+
+                <div class="text-center">Already have an account? <a href="/fraud_prevention/app/modules/index.php">Sign
+                        in</a></div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            function closeSuccessModal() {
+                var modal = document.getElementById("successModal");
+                modal.style.display = "none";
+            }
+
+            // You can call this function when registration is successful
+            function showSuccessModal() {
+                var modal = document.getElementById("successModal");
+                modal.style.display = "block";
+            }
+        </script>
+
+    </body>
+
+</html>
